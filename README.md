@@ -2,6 +2,17 @@
 
 # ETL Pipeline for Yellow Taxi Rides Data
 
+## TOOLS USED
+![python](https://img.shields.io/badge/python-3.9.17-yellow)
+![Static Badge](https://img.shields.io/badge/prefect-2.14.22-lightblue)
+![Static Badge](https://img.shields.io/badge/spark-3.5.0-red)
+![Static Badge](https://img.shields.io/badge/terraform-1.6.6-purple)
+![Static Badge](https://img.shields.io/badge/Cloud-Storage-blue)
+![Static Badge](https://img.shields.io/badge/Big-Query-blue)
+![Static Badge](https://img.shields.io/badge/Dataproc-blue)
+
+
+
 ## Overview
 
 This project involves the development of an ETL (Extract, Transform, Load) pipeline to process yellow taxi rides data provided by the TLC (Taxi and Limousine Commission). The pipeline is designed to fetch raw data from the TLC's web source, store it in a data lake (Google Cloud Storage), perform data transformations using Apache Spark, execute operations in a distributed environment via Dataproc cluster manager, store the cleaned data in a data warehouse (BigQuery), and visualize the results through a dashboard created with Looker Studio. The entire pipeline is orchestrated using Prefect, and the infrastructure is managed on Google Cloud using Terraform.
@@ -20,7 +31,7 @@ Technologies Used
     BigQuery: Data warehouse employed for storing the cleaned and processed data.
 
 ## Project Structure
-
+<img src='ETL_architecture.png'>
 The project is structured as follows:
 
     Fetching Data: The ETL pipeline starts by fetching raw yellow taxi rides data from the TLC's web source.
