@@ -116,7 +116,8 @@ Access Looker Studio and connect it with the table created by the pipeline in Bi
 
 If you'd like to contribute to this project, please fork the repository and create a pull request. Issues and feature requests are also welcome!
 
+**Taxi Image Credit**
+<a href="https://www.flaticon.com/free-icons/taxi" title="taxi icons">Credit Taxi icons created by Freepik - Flaticon</a>
+
 ## License
 This project is licensed under the MIT License.
-
-<a href="https://www.flaticon.com/free-icons/taxi" title="taxi icons">Credit Taxi icons created by Freepik - Flaticon</a>
