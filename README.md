@@ -93,13 +93,14 @@ prefect agent start -p "your_agent_name"
 ```
 > Note: The agent name and command to start an agent will appear on your terminal. Additionally, you have the option to schedule the execution of your pipeline directly from the Prefect UI. Navigate to the deployment section, select your created deployment,and configure the desired schedule, specifying the interval for repetition.
 
-> Note: I will also provide an image below, showcasing the Prefect monitoring in action:
+> The below image, showcasing the Prefect monitoring in action:
+<img src="flow_image.png">
 
 ### Step 6: Access Dashboard
 
-Access Looker Studio and connect it with the table created by the pipeline in BigQuery. Start creating your desired dashboard. Check the provided image below for an example of how the dashboard looks.
+Access Looker Studio and connect it with the table created by the pipeline in BigQuery. Start creating your desired dashboard. Check the provided image below for an example of my created dashboard.
 
-Replace URL_TO_LOOKER_DASHBOARD_IMAGE with the actual URL or path to the image of your Looker dashboard.
+<img src="dashboard_image.png">
 
 ## Customization
 
