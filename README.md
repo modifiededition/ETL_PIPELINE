@@ -19,6 +19,10 @@ This project involves the development of an ETL (Extract, Transform, Load) pipel
 ### :star: Give a Star! 
 
 Support this project by **giving it a star**. Thanks!
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashish-goyal-00/)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/modifiededition)
+
    
 ## 🏛️ Project Structure
 <img src='ETL_architecture.png'>
@@ -96,17 +100,17 @@ prefect agent start -p "your_agent_name"
 > The below image, showcasing the Prefect monitoring in action:
 <img src="flow_image.png">
 
-### Step 6: Access Dashboard
-
-Access Looker Studio and connect it with the table created by the pipeline in BigQuery. Start creating your desired dashboard. Check the provided image below for an example of my created dashboard.
-
-<img src="dashboard_image.png">
-
 ## Customization
 
 - Scheduling: Modify Prefect workflows to schedule pipeline execution at specific intervals.
 - Parallelization: Adjust the number of workers in the Terraform configuration to parallelize the workload based on your requirements.
 - Data Range: When executing the pipeline, pass the desired years and months to fetch data for specific time periods.
+
+### Step 6: Access Dashboard
+
+Access Looker Studio and connect it with the table created by the pipeline in BigQuery. Start creating your desired dashboard. Check the provided image below for an example of my created dashboard.
+
+<img src="dashboard_image.png">
 
 ## Contributing
 
