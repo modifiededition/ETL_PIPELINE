@@ -16,6 +16,9 @@ This project involves the development of an ETL (Extract, Transform, Load) pipel
 ![Static Badge](https://img.shields.io/badge/Dataproc-blue)
 ![Static Badge](https://img.shields.io/badge/licence-mit-green)
 
+### :star: Give a Star! 
+
+Support this project by **giving it a star**. Thanks!
    
 ## 🏛️ Project Structure
 <img src='ETL_architecture.png'>
@@ -32,48 +35,83 @@ The project is structured as follows:
 
 ## 🚀 Getting Started
 
-To replicate this project on your end, follow these steps:
+Follow these steps to set up and run the ETL pipeline on your machine:
 
-    Prerequisites: Ensure you have Google Cloud credentials set up, and necessary API keys and access permissions.
+### Step 1: Prerequisites
 
-    Clone the Repository: Clone this repository to your local machine.
+Ensure you have the following prerequisites before starting with the pipeline:
 
-    bash
+- Google Cloud Credentials: Set up Google Cloud credentials with access permissions to services such as storage, storage object, BigQuery, and Dataproc.
+- Terraform Installation: Install Terraform on your machine.
 
-git clone https://github.com/your-username/your-repo.git
+### Step 2: Clone Repository
 
-Configuration: Update configuration files such as config.yaml and provide necessary credentials for Google Cloud.
+Clone this repository to your local machine
 
-Run Terraform: Execute Terraform scripts to provision the required infrastructure on Google Cloud.
+### Step 3: Run Terraform
 
-bash
-
-cd terraform
+Execute Terraform scripts to provision the required infrastructure on Google Cloud. Run the following commands:
+```bash
 terraform init
 terraform apply
+```
 
-Execute Pipeline: Run the Prefect pipeline to trigger the ETL process.
+After entering the terraform apply command, you will be prompted for the following information:
+- Number of workers required for your Spark job runs managed by the Dataproc cluster.
+- Idle time in seconds for the Dataproc cluster (minimum time required is '900s').
+- Your Google Cloud Project ID.
 
-bash
+> Note: Configure variables in the variable.tf file as needed, such as worker machine type and desired location for hosting cloud services.
 
-    cd ../prefect
-    python etl_pipeline.py
+### Step 4: Set Up Virtual Environment
 
-    Monitor Workflow: Utilize Prefect's monitoring capabilities to keep track of workflow execution.
+Create a virtual environment and install the required libraries from the provided requirements.txt file.
 
-    Access Dashboard: Once the pipeline is complete, access the Looker Studio dashboard to visualize the results.
+### Step 5: Monitor Workflow
 
-Customization
+Activate your virtual environment and run the following commands to monitor and execute the pipeline:
 
-    Scheduling: Modify Prefect workflows to schedule pipeline execution at specific intervals.
+Start the Prefect server for monitoring your flow run:
 
-    Parallelization: Adjust the number of workers in the Terraform configuration to parallelize the workload based on your requirements.
+```bash
+prefect server start
+```
+Run the entire pipeline with the following command, specifying the desired years and months for fetching yellow taxi ride data:
 
-    Data Range: When executing the pipeline, pass the desired years and months to fetch data for specific time periods.
+```bash
+prefect deployment build etl_pipeline:parent_etl_pipeline -n yellow_taxi_rides_flow \
+    --params='{"years":["2020","2021"], "months": ["01","02","03"]}' -a
+```
+In this above example parameters fetch yellow taxi ride data for January, February, and March of 2020 and 2021.
 
-Contributing
+Visit the Prefect server UI (default: localhost:4200) to monitor the flow run.
+
+Execute the flow run by starting an agent from the work pool using the command:
+
+```bash
+prefect agent start -p "your_agent_name"
+```
+> Note: The agent name and command to start an agent will appear on your terminal. Additionally, you have the option to schedule the execution of your pipeline directly from the Prefect UI. Navigate to the deployment section, select your created deployment,and configure the desired schedule, specifying the interval for repetition.
+
+> Note: I will also provide an image below, showcasing the Prefect monitoring in action:
+
+### Step 6: Access Dashboard
+
+Access Looker Studio and connect it with the table created by the pipeline in BigQuery. Start creating your desired dashboard. Check the provided image below for an example of how the dashboard looks.
+
+Replace URL_TO_LOOKER_DASHBOARD_IMAGE with the actual URL or path to the image of your Looker dashboard.
+
+## Customization
+
+- Scheduling: Modify Prefect workflows to schedule pipeline execution at specific intervals.
+- Parallelization: Adjust the number of workers in the Terraform configuration to parallelize the workload based on your requirements.
+- Data Range: When executing the pipeline, pass the desired years and months to fetch data for specific time periods.
+
+## Contributing
 
 If you'd like to contribute to this project, please fork the repository and create a pull request. Issues and feature requests are also welcome!
-License
 
+## License
 This project is licensed under the MIT License.
+
+<a href="https://www.flaticon.com/free-icons/taxi" title="taxi icons">Credit Taxi icons created by Freepik - Flaticon</a>
